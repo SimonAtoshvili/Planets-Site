@@ -2,7 +2,7 @@
 
 #root,
 header {
-  background: url(./assets/background-stars.svg);
+  background: url(../public/assets/background-stars.svg);
   background-color: #070724;
   width: 100%;
 }
@@ -391,7 +391,7 @@ h3 {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    background: url(./assets/background-stars.svg);
+    background: url(../public/assets/background-stars.svg);
     background-color: #070724;
     flex-direction: column;
     padding: 30px 32px 0 24px;
@@ -455,7 +455,7 @@ h3 {
     width: 100%;
     max-width: 430px;
     justify-content: space-between;
-    background: url(./assets/background-stars.svg);
+    background: url(../public/assets/background-stars.svg);
     background-color: #070724;
     padding: 0px 24px;
   }
