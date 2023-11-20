@@ -17,8 +17,8 @@ function Content(props: any) {
                 props.setMobile(true);
             }
         }
-    }, [selectCount, props.planet, props.burgerRef.current])
-
+    })
+    // selectCount, props.planet, props.burgerRef.current
     return (
         <main style={props.bodyHide ? {display: 'none'} : {}}>
             <div className='img_div'>

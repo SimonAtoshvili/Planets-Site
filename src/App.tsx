@@ -3,6 +3,7 @@ import Panel from './Panel'
 import Content from './Content'
 import Details from './Details';
 
+
 function App() {
   const [planet, setPlanet] = useState<number>(0); // რომელი პლანეტაა არჩეული
   const [data, setData] = useState<any>(null); // მონაცემების დასაფეჩად
@@ -26,7 +27,7 @@ function App() {
   useEffect(() => { // ვფეჩავთ მონაცემებს საიტის პირველი რენდერისას
     const fetchData = async () => {
       try {
-        const response = await fetch('src/data.json');
+        const response = await fetch('../src/data.json');
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {

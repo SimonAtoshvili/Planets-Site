@@ -9,6 +9,8 @@ function Panel(props: any) {
     const [hover, setHover] = useState<boolean>(false) // ვიგებთ The Planets(სათაურს) თუ გადავატარეთ მაუსი, რათა გავაფერადოთ არჩეული პლანეტის ფრად
     const [burger, setBurger] = useState<boolean>(true); // რა ფერი უნდა იყოს burger icon
 
+    const ul = document.querySelector('ul')
+
     return (
         <header>
             <a href="../index.html">
@@ -19,11 +21,11 @@ function Panel(props: any) {
                 >
                     The Planets</h1>
             </a>
-            <ul style={props.bodyHide ? {display: 'flex'} : {display: 'none'}}>
+            <ul>
                 {planetsArray.map((element, index) => (
                     <li
                         key={index}
-                        style={props.mobile && hoveredIndex === index ? { borderColor: colorArray[index] } : {}}
+                        style={!props.mobile && hoveredIndex === index ? { borderColor: colorArray[index] } : {}}
                         onMouseOver={() => setHoveredIndex(index)}
                         onMouseOut={() => setHoveredIndex(null)}
                         onClick={() => {
@@ -37,6 +39,7 @@ function Panel(props: any) {
                                 }else {
                                     setBurger(true);
                                 }
+                                ul?.classList.toggle('ul_show');
                             }
                         }}
                     >
@@ -66,6 +69,7 @@ function Panel(props: any) {
                         }else {
                             setBurger(true);
                         }
+                        ul?.classList.toggle('ul_show');
                     }
                 }}
             >
