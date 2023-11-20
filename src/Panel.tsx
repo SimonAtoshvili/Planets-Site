@@ -5,7 +5,7 @@ let colorArray = ['#419EBB', '#EDA249', '#6D2ED5', '#D14C32', '#D83A34', '#CD512
 
 function Panel(props: any) {
 
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null) // ვიგებთ რომელ პლანეტას გადავატარეთ მაუსი, რომ შესაბამისი ფერი მისცეს
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null) // ვიგებთ რომელ პლანეტის სახელს გადავატარეთ მაუსი, რომ შესაბამისი ფერი მისცეს
     const [hover, setHover] = useState<boolean>(false) // ვიგებთ The Planets(სათაურს) თუ გადავატარეთ მაუსი, რათა გავაფერადოთ არჩეული პლანეტის ფრად
     const [burger, setBurger] = useState<boolean>(true); // რა ფერი უნდა იყოს burger icon
 

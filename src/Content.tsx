@@ -7,20 +7,18 @@ function Content(props: any) {
     const imagesArray = ['planet', 'internal', 'geology'];
     const [selectCount, setSelectCount] = useState<number>(0) // ვიგებთ დაეკლიკა თუ არა რომელიმე .pages ელემენტს
 
-    useEffect(() => { 
-        // აქ ვადგენთ მობაილ ვერსიაზე ვართ თუ არა, იმის საფუძველზე, ჩანს თუ არა burger icon და შესაბამისად ვცვლით mobile სთეითს
-        const burgerDisplayStyle = window.getComputedStyle(props.burgerRef.current).getPropertyValue('display');
-        if (props.burgerRef.current) {
-            if (burgerDisplayStyle === 'none') {
-                props.setMobile(false);
-            } else {
-                props.setMobile(true);
-            }
-        }
+    useEffect(() => {
+        // აქ ვადგენთ მობაილ ვერსიაზე ვართ თუ არა და შესაბამისად ვცვლით mobile სთეითს
+        const handleResize = () => {
+            props.setMobile(window.innerWidth <= 430);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
     })
-    // selectCount, props.planet, props.burgerRef.current
+
     return (
-        <main style={props.bodyHide ? {display: 'none'} : {}}>
+        <main style={props.bodyHide ? { display: 'none' } : {}}>
             <div className='img_div'>
                 <img
                     className="planet_img"
