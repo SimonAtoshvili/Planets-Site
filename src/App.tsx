@@ -27,7 +27,7 @@ function App() {
   useEffect(() => { // ვფეჩავთ მონაცემებს საიტის პირველი რენდერისას
     const fetchData = async () => {
       try {
-        const response = await fetch('../src/data.json');
+        const response = await fetch('./data.json');
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
