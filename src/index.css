@@ -1,0 +1,499 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: url(./assets/background-stars.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #070724;
+  /* background-color: rgb(30, 88, 88); */
+  padding-bottom: 60px;
+}
+
+header {
+  width: 100%;
+  padding: 0 41px 0 32px;
+  background: url(./assets/background-stars.svg);
+  background-color: #070724;
+  /* background-color: rgb(25, 73, 73); */
+  border-bottom: rgba(256, 256, 256, 0.25) solid 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.burger {
+  display: none;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -1.05px;
+  text-transform: uppercase;
+}
+
+ul {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  height: 78px;
+  color: #FFF;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 70px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  border-top: 7px solid transparent;
+}
+
+li:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.img_div {
+  position: relative;
+  max-width: 700px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planet_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.geology {
+  position: absolute;
+  width: 150px;
+  height: 170px;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* Content */
+
+main {
+  max-width: 1250px;
+  width: 85%;
+  padding-top: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  max-width: 350px;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: #FFF;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.content_text {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 25px 0;
+}
+
+.source {
+  color: #838391;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin-bottom: 40px;
+}
+
+.wiki {
+  color: #838391;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+  text-decoration: underline;
+}
+
+.pages {
+  padding: 12px 0 11px 28px;
+  border: 1px solid #393950;
+  margin-bottom: 16px;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 2.571px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.pages span {
+  color: #838391;
+  margin-right: 25px;
+}
+
+.pages:hover {
+  background-color: #313148;
+}
+
+/* Footer */
+
+footer {
+  width: 85%;
+  max-width: 1250px;
+  margin: 60px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details_div {
+  max-width: 280px;
+  width: 22.2%;
+  padding: 20px 10px 27px 23px;
+  border: 1px solid #393950;
+}
+
+.details_p {
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 5px;
+}
+
+h3 {
+  color: #FFF;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+
+.mobile_images {
+  width: 20px;
+  height: 20px;
+  margin-right: 25px;
+  display: none;
+}
+
+.mobile_svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+@media(max-width: 1020px) {
+  ul {
+    width: 73%;
+    justify-content: space-between;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+  .pages {
+    padding-left: 10px;
+  }
+
+  .pages span {
+    margin-right: 5px;
+  }
+
+  .details_div {
+    width: 23%;
+    padding: 15px 10px 20px 12px;
+  }
+
+  .details_p {
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 32px 0;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  li {
+    font-size: 9px;
+    border: none;
+    line-height: normal;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  main {
+    flex-direction: column;
+    padding-top: 200px;
+  }
+
+  .img_div {
+    width: 100%;
+  }
+
+  .planet_img {
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 100%;
+    max-width: 650px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .content_left,
+  .contetn_right {
+    width: 45%;
+  }
+
+  .content_text {
+    font-size: 11px;
+    line-height: 22px;
+  }
+
+  .pages {
+    padding-right: 10px;
+    min-width: 200px;
+    width: 100%;
+    font-size: 9px;
+    line-height: 22px;
+  }
+
+  footer {
+    margin: 20px auto 0 auto;
+
+  }
+
+  .details_div {
+    width: 24%;
+    padding-left: 10px;
+  }
+
+  .details_p {
+    font-size: 8px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  }
+
+  h3 {
+    font-size: 16px;
+    letter-spacing: -0.9px;
+  }
+
+  .wiki,
+  .source {
+    font-size: 11px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 550px) {
+
+  .details_div {
+    padding: 10px 5px;
+  }
+
+  .details_p {
+    font-size: 7px;
+    letter-spacing: 0.2px;
+  }
+
+  h3 {
+    font-size: 12px;
+    letter-spacing: -0.5px;
+  }
+}
+
+@media (max-width: 430px) {
+  header {
+    flex-direction: row;
+    padding: 16px 24px;
+  }
+
+  header a {
+    margin: 0;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  ul {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 60.8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: url(./assets/background-stars.svg);
+    background-color: #070724;
+    flex-direction: column;
+    padding: 30px 32px 0 24px;
+  }
+
+  li {
+    position: relative;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 1.364px;
+    border-bottom: 1px solid rgba(256, 256, 256, 0.1);
+    opacity: 1;
+    padding: 25px 0;
+  }
+
+  .burger,
+  .mobile_svg,
+  .mobile_images{
+    display: block;
+  }
+  .img_div {
+    width: 80%;
+  }
+
+  .planet_img{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  h2 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .pages {
+    border: none;
+    border-bottom: 4px solid;
+    margin: 0;
+    min-width: 0;
+    width: fit-content;
+    max-width: 120px;
+    padding: 10px 0;
+  }
+
+  .content_right {
+    display: flex;
+    position: fixed;
+    top: 60.8px;
+    left: 0;
+    border-bottom: 1px solid #393950;
+    width: 100%;
+    max-width: 430px;
+    justify-content: space-between;
+    background: url(./assets/background-stars.svg);
+    background-color: #070724;
+    padding: 0px 24px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+  .content_left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content_text{
+    text-align: center;
+  }
+
+  .source {
+    text-align: center;
+  }
+
+  footer {
+    width: 90%;
+    max-width: 380px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .details_div {
+    padding: 16px 24px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: -0.75px;
+  }
+
+  .details_p {
+    margin: 0;
+    font-size: 10px;
+    letter-spacing: 0.75px;
+  }
+
+  footer, main {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
