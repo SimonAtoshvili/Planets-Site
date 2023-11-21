@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Panel from './Panel'
 import Content from './Content'
 import Details from './Details';
@@ -9,18 +9,13 @@ function App() {
   const [data, setData] = useState<[] | null>(null); // მონაცემების დასაფეჩად
   const [page, setPage] = useState<string>('overview'); // რომელი ფეიჯი უნდა ვაჩვენოთ
   const [image, setImage] = useState<string>('planet'); // რომელი სურათ(ებ)ი უნდა ჩანდეს
-  const burgerRef = useRef<HTMLElement | null>(null); //ბურგერ icon-ის სტილების დასანახად mobile სთეითის დასადგენად
   const [mobile, setMobile] = useState<boolean>(false); // გავიგოთ მობაილ ვერსიაზე ვართ თუ არა
   const [count, setCount] = useState<number>(0); // useEffect-ით დავადგინოთ ul, main და footer უნდა გავაქროთ თუ გამოვაჩინოთ
-  const [bodyHide, setBodyHide] = useState<boolean | null>(null); // გვეუბნება რა უნდა ვუქნათ main, footer და ul ელემენტებს, მობაილ ვერსიაზე ყოფნის დროს
+  const [bodyHide, setBodyHide] = useState<boolean>(false); // გვეუბნება რა უნდა ვუქნათ main, footer და ul ელემენტებს, მობაილ ვერსიაზე ყოფნის დროს
 
   useEffect(() => { // მობაილ ვერსიაზე ყოფნისას, ვარკვევთ დაკლიკდა თუ არა burger icon-ზე ან რომელიმე პლანეტაზე, რათა შესაბამისად შევცვალოთ bodyHide სთეითი
     if (count > 0) {
-      if (!bodyHide) {
-        setBodyHide(true);
-      } else {
-        setBodyHide(false);
-      }
+      setBodyHide(!bodyHide);
     }
   }, [count])
 
@@ -45,11 +40,9 @@ function App() {
         setPlanet={setPlanet}
         setPage={setPage}
         setImage={setImage}
-        burgerRef={burgerRef}
         mobile={mobile}
         count={count}
         setCount={setCount}
-        bodyHide={bodyHide}
       />
       <Content
         planet={planet}
@@ -58,7 +51,6 @@ function App() {
         setPage={setPage}
         image={image}
         setImage={setImage}
-        burgerRef={burgerRef}
         mobile={mobile}
         setMobile={setMobile}
         bodyHide={bodyHide}

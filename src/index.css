@@ -348,6 +348,11 @@ h3 {
     font-size: 11px;
     margin: 0;
   }
+
+  .geology{
+    width: 100px;
+    height: 120px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -510,5 +515,10 @@ h3 {
     width: 100%;
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  .geology{
+    width: 85px;
+    height: 100px;
   }
 }

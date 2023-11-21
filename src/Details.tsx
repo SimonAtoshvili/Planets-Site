@@ -1,34 +1,45 @@
-function Details(props: any) {
+interface DetailsProps {
+    planet: number;
+    data: [] | null;
+    bodyHide: boolean;
+}
+
+const Details: React.FC<DetailsProps> = ({planet, data, bodyHide}) => {
     return (
-        <footer style={props.bodyHide ? {display: 'none'} : {}}>
+        <footer style={bodyHide ? {display: 'none'} : {}}>
             <SingleDetail
                 text='rotation time'
-                path={props.data ? props.data[props.planet].rotation : ''}
+                path={data ? data[planet]['rotation'] : ''}
             />
             <SingleDetail
                 text='revolution time'
-                path={props.data ? props.data[props.planet].revolution : ''}
+                path={data ? data[planet]['revolution'] : ''}
             />
             <SingleDetail
                 text='radius'
-                path={props.data ? props.data[props.planet].radius : ''}
+                path={data ? data[planet]['radius'] : ''}
             />
             <SingleDetail
                 text='avarage temp'
-                path={props.data ? props.data[props.planet].temperature : ''}
+                path={data ? data[planet]['temperature'] : ''}
             />
         </footer>
     )
 }
 
-function SingleDetail(props: any) {
+interface SingleDetailProps {
+    text: string;
+    path: any;
+}
+
+const SingleDetail: React.FC<SingleDetailProps> = ({text, path}) => {
     return (
         <div className="details_div">
             <p className="details_p">
-                {props.text}
+                {text}
             </p>
             <h3>
-                {props.path}
+                {path}
             </h3>
         </div>
     )

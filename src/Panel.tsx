@@ -3,7 +3,18 @@ import { useState } from "react";
 let planetsArray = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune']
 let colorArray = ['#419EBB', '#EDA249', '#6D2ED5', '#D14C32', '#D83A34', '#CD5120', '#1EC1A2', '#2D68F0']
 
-function Panel(props: any) {
+interface PanelProps {
+    data: [] | null;
+    planet: number;
+    setPlanet: React.Dispatch<React.SetStateAction<number>>;
+    setPage: React.Dispatch<React.SetStateAction<string>>;
+    setImage: React.Dispatch<React.SetStateAction<string>>;
+    mobile: boolean;
+    count: number;
+    setCount: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Panel: React.FC<PanelProps> = ({ data, planet, setPlanet, setPage, setImage, mobile, count, setCount }) => {
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null) // ვიგებთ რომელ პლანეტის სახელს გადავატარეთ მაუსი, რომ შესაბამისი ფერი მისცეს
     const [hover, setHover] = useState<boolean>(false) // ვიგებთ The Planets(სათაურს) თუ გადავატარეთ მაუსი, რათა გავაფერადოთ არჩეული პლანეტის ფრად
@@ -17,7 +28,7 @@ function Panel(props: any) {
                 <h1
                     onMouseOver={() => setHover(true)}
                     onMouseOut={() => setHover(false)}
-                    style={hover ? { color: colorArray[props.planet] } : {}}
+                    style={hover ? { color: colorArray[planet] } : {}}
                 >
                     The Planets</h1>
             </a>
@@ -25,27 +36,23 @@ function Panel(props: any) {
                 {planetsArray.map((element, index) => (
                     <li
                         key={index}
-                        style={!props.mobile && hoveredIndex === index ? { borderColor: colorArray[index] } : {}}
+                        style={!mobile && hoveredIndex === index ? { borderColor: colorArray[index] } : {}}
                         onMouseOver={() => setHoveredIndex(index)}
                         onMouseOut={() => setHoveredIndex(null)}
                         onClick={() => {
-                            props.setPlanet(index);
-                            props.setPage('overview');
-                            props.setImage('planet');
-                            if (props.mobile) {
-                                props.setCount(props.count + 1)
-                                if(burger) {
-                                    setBurger(false);
-                                }else {
-                                    setBurger(true);
-                                }
+                            setPlanet(index);
+                            setPage('overview');
+                            setImage('planet');
+                            if (mobile) {
+                                setCount(count + 1)
+                                setBurger(!burger)
                                 ul?.classList.toggle('ul_show');
                             }
                         }}
                     >
                         <img
                             className="mobile_images"
-                            src={props.data ? props.data[index].images.planet : ''}
+                            src={data ? data[index]['images']['planet'] : ''}
                             alt=""
                         />
                         {element}
@@ -60,15 +67,10 @@ function Panel(props: any) {
                 width="24" height="17" viewBox="0 0 24 17"
                 fill="none"
                 className="burger"
-                ref={props.burgerRef}
                 onClick={() => {
-                    if (props.mobile) {
-                        props.setCount(props.count + 1)
-                        if(burger) {
-                            setBurger(false);
-                        }else {
-                            setBurger(true);
-                        }
+                    if (mobile) {
+                        setCount(count + 1)
+                        setBurger(!burger)
                         ul?.classList.toggle('ul_show');
                     }
                 }}
